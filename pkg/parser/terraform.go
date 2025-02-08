@@ -33,6 +33,7 @@ func parseTerraformLockfile(path string, config *ParserConfig) (*models.PackageM
 		}
 
 		providerName := block.Labels[0] // The provider name is the first label
+		fmt.Println("-------> ", providerName)
 		providerVersion := "0.0.0"
 		if versionAttr, exists := block.Body.Attributes["version"]; exists {
 			versionVal, diags := versionAttr.Expr.Value(nil)
